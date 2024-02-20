@@ -1,0 +1,18 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getBlogs } from "../../js/blogs";
+import Post from "../../components/Post.astro";
+import RootLayout from "../../layouts/RootLayout.astro";
+
+let raw = await Astro.glob("./*.md");
+    // console.log(raw);
+---
+
+<MainLayout title="My Blogs">
+    <section>
+        <h1>You are seeing my blogs: </h1>
+            {
+                raw.map((blog) => <Post title={blog.frontmatter.title} desc={blog.frontmatter.desc} img={blog.frontmatter.img} categories={blog.frontmatter.categories} url={blog.url || "Not found"} />)
+            }
+    </section>
+</MainLayout>

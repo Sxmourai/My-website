@@ -1,0 +1,48 @@
+--- 
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description}>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+        <slot />
+	</body>
+</html>	
+
+<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--bg: hsl(20, 10%, 10%);
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html,body {
+        font-family: 'Oswald', sans-serif;
+		background: var(--bg);
+		min-height: 100vh;
+		color: white;
+	}
+    
+</style>

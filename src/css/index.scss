@@ -1,0 +1,254 @@
+section.main {
+    height: 100vh;
+    
+    h1 > strong {
+            background: -webkit-linear-gradient(0deg,  var(--c-1) 5%, var(--c-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        font-size: 2em;    
+        strong {
+            color: var(--c-1);
+        }
+    }
+    .socials {
+        margin-top: 10vh;
+        height: 4vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+            height: 100%;
+            // width: 20px;
+            img {
+                height: 100%;
+                margin: 0 10px;
+                // height: 100%;
+                // width: 10px;
+            }
+        }
+    }
+    #background {
+        position: absolute;
+        width: 100%;
+        height:100vh;
+        z-index: -1;
+
+        .container {
+            background-color: var(--bg);
+            position: relative;
+            width: 100%;
+            height:100vh;
+        }
+        .trails {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-40%);
+            display: flex;flex-direction:column;
+            align-items: center;justify-content: center;
+            width: 100%;
+            height: 40%;
+        }
+        .trail {
+            width: 80vw;height: 100%;
+            border: 0;
+            margin-top: -1px  ;
+            background: rgb(50,50,50);
+            border-radius: 50px;
+        }
+        .trail:nth-child(1) {width: 70vw;}
+        .trail:nth-child(2) {width: 81vw;}
+        .trail:nth-child(3) {width: 80vw;}
+        .trail:nth-child(4) {width: 84vw;}
+        .trail:nth-child(5) {width: 90vw;}
+        .trail:nth-child(6) {width: 81vw;}
+        .trail:nth-child(7) {width: 60vw;}
+    }
+
+    // img {
+    //     width: 10vw;
+    //     top: 80%;
+    //     position: absolute;
+    // }
+    
+    path{
+        fill : url(#gradient)
+    }
+}
+section {
+    h1 {
+        font-size: 6em;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+}
+section.experience {
+    // height: 60vh;
+
+    ul {
+        margin: 20px 0px;
+        margin-bottom: 100px;
+        width: 50%;
+        display: grid;
+        list-style: none;
+        gap: 20px;
+        position: relative;
+        grid-template-columns: repeat(7, 1fr);
+        // height: 20vh;
+        a {
+            color:white;
+            text-align: center;
+            width: 95%;
+            height:120px;
+            background: rgba(255,255,255,.1);
+            border-radius: 15px;
+            display: flex;align-items: center;justify-content: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            img {
+                width: 100%;
+                padding: 10px;
+            }
+            p {
+                transform: translateY(100%);
+                position: absolute;
+                bottom: 0;
+                margin-bottom: 0;
+                transition: .2s;
+                transition-delay: .2s;
+            }
+            transition: .4s;
+        }
+        a:hover {
+            height: 140px;
+            transform:scale(1.2);
+            p {
+                transform: translateY(0%);
+                display: block;
+            }
+        }
+        span {
+            content: '';
+            position: absolute;
+            background: linear-gradient(90deg, red,transparent, red);
+            background-position-x: 50%;
+            width: 100%;
+            height:100%;
+        }
+    }
+}
+section.projects {
+    // background: rgba(0,0,0,.1);
+    min-height: 100vh;
+
+    h1 {
+        margin-bottom: 50px;
+    }
+    
+    .projects_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap:20px;
+        div {
+            width: 400px;
+            height:300px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            padding: 40px;
+        }
+        h2 {
+            font-size: 40px;
+            width: 100%;
+        }
+        p {
+            font-size:20px;
+        }
+        .project {
+            background: rgba(255,255,255,.1);
+            border-radius: 20px;
+        }
+        a {
+            color: white;
+            font-size: 25px;
+            padding: 10px;
+            position: relative;
+        }
+        .know_more {
+            h2 {
+                font-size:30px;
+                width: fit-content;
+            }
+            p {
+                font-size:20px;
+            }
+            a {
+                background: rgba(255,255,255, .1);
+                border-radius: 50px;
+                padding: 10px 15px;
+                p {
+                    background: -webkit-linear-gradient(0deg,  var(--c-1) 25%, var(--c-2) 75%);
+                    background-size: 400%;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    transition: .5s;
+                }
+            }
+            a:hover {
+                p {
+                    background-position: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1400px) {
+    section.main {
+        height: 80vh;
+    }
+    section.experience {
+        ul {
+            // row-gap: 50px;
+            display: grid;
+            width: 80%;
+            a {
+                width: 100%;
+            }
+        }
+        // height: 80vh;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    section.experience {
+        ul {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+    section.projects {
+        .projects_container {
+            
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    section.experience {
+        // ul {
+        //     display: grid;
+        //     grid-template-columns: repeat(7, 1fr);
+        //     li {
+        //         width: 85%;
+        //     }
+        // }
+        // height: 80vh;
+    }
+}

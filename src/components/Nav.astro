@@ -1,0 +1,167 @@
+---
+import navData from "../data/navData";
+import "../css/global.scss";
+---
+
+<nav>
+    <img class="avatar" src="/avatar.png"/>
+    <button id="toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+<ul id="nav_links">
+    {navData.map((item) => {
+        let classes = [];
+        if (item.path === Astro.url.pathname) {
+            classes.push("current");
+        }
+        return <a href={item.path} class={classes.join(" ")}>{item.name}</a>
+    })}
+</ul>
+<script defer>
+const button = document.getElementById("toggle");
+button.addEventListener("click", e => {
+    button.classList.toggle("active")
+    document.getElementById("nav_links").classList.toggle("active")
+})
+</script>
+
+<style lang="scss">
+nav {
+    // position: absolute;
+    width: 100%;
+    // height:9vh;
+    $_bg_opacity: .5;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50px;
+    margin-top: 5vh;
+    margin-bottom: 4vh;
+    .avatar {
+        z-index: 1;
+        height: 100%;
+        // margin: 100px;
+        border-radius: 50%;
+    }
+    button {
+        outline: none;border:none;
+        width: 50px;
+        height:70%;
+        cursor: pointer;
+        background: none;
+        display: flex;flex-direction: column;
+        // justify-content: center;
+        position: relative;
+        z-index: 1000;
+        span {
+            position: absolute;
+            width: 100%;
+            height: 25%;
+            border: white solid 1.5px;
+            border-radius: 10px;
+            top: 0%;
+            transition: .5s;
+            transform: translateX(0%);
+            left: 0;
+        }
+        span:nth-child(2) {
+            top: 50%;
+            width: 70%;
+            // transform: translateY(-50%);
+        }
+        span:nth-child(3) {
+            top: 100%;
+            width: 60%;
+            // transform: translateY(-50%);
+        }
+    }
+    button:hover {
+        span {
+            width: 100%;
+        }
+        span:nth-child(1) {
+            width: 60%;
+            left:100%;
+            transform: translateX(-100%);
+        }
+        span:nth-child(2) {
+            width: 70%;
+            left:100%;
+            transform: translateX(-100%);
+        }
+    }
+    button.active {
+        
+        span {
+            position: absolute !important;
+            width:100% !important;
+            top:50% !important;
+            left:0 !important;
+        }
+        span:nth-child(1) {
+            left:100%;
+            width:0 !important;
+            border-color: transparent;
+        }
+        span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+        span:nth-child(3) {
+            transform: rotate(135deg);
+        }
+    }
+    button.active:hover {
+        span:nth-child(2) {
+            transform: rotate(-135deg);
+        }
+        span:nth-child(3) {
+            transform: rotate(-225deg);
+        }
+    }
+}
+ul {
+    width: 100vw;
+    min-height:100vh;
+    position: fixed;
+    top:0;
+    transform: translateY(-150%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: .5s;
+    z-index: 3;
+    a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        padding: 10px;
+        font-size: 4vw;
+        background: radial-gradient(white,var(--c-1));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100%;
+        background-position: 100% 50px;
+        transition: .5s;
+    }
+    a:hover {
+        background-position: 100% 100px;
+        transform: scale(1.2);
+    }
+}
+ul::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 300%;
+    height:200%;
+    background: radial-gradient(rgba(0,0,0,.9) 50%, transparent 0%);
+    background-position: 50% 50%;
+}
+ul.active {
+    transform: translateY(0%);
+}
+</style>

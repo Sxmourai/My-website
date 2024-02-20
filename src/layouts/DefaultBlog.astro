@@ -1,0 +1,16 @@
+---
+import Categories from "../components/Categories.astro";
+import MainLayout from "./MainLayout.astro";
+
+let {title, desc, img, categories} = Astro.props.frontmatter;
+console.log(title, desc, img, categories);
+---
+
+<MainLayout title={title}>
+    <Categories categories={categories} />
+    <h1>{title}</h1>
+    <h3>{desc}</h3>
+    <img src={img} />
+
+    <slot />
+</MainLayout>

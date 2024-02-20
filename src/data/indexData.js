@@ -1,0 +1,16 @@
+export const knowledge = [
+    { "path": "python.png",     "name": "Python"    ,"url": "https://www.python.org"},
+    { "path": "rust.png",       "name": "Rust"      ,"url": "https://www.rust-lang.org/fr"},
+    { "path": "reactjs.png",    "name": "React.js"  ,"url": "https://fr.react.dev"},
+    { "path": "nextjs.png",     "name": "Next.js"   ,"url": "https://nextjs.org"},
+    { "path": "astrojs.png",    "name": "Astro.js"  ,"url": "https://astro.build"},
+    { "path": "angularjs.png",  "name": "Angular"   ,"url": "https://angular.io"},
+    { "path": "html.webp",      "name": "HTML"      ,"url": "https://developer.mozilla.org/fr/docs/Web/HTML"},
+    { "path": "css.webp",       "name": "CSS"       ,"url": "https://developer.mozilla.org/fr/docs/Web/CSS"},
+    { "path": "javascript.png", "name": "JS"        ,"url": "https://developer.mozilla.org/fr/docs/Web/JavaScript"},
+    { "path": "php.png",        "name": "PHP"       ,"url": "https://www.php.net"},
+    { "path": "postgresql.png", "name": "SQL"       ,"url": "https://sql.sh"},
+    { "path": "linux.png",      "name": "Linux"     ,"url": "https://fr.wikipedia.org/wiki/Linux"},
+    { "path": "docker.png",     "name": "Docker"    ,"url": "https://www.docker.com"},
+    { "path": "c++.png",        "name": "C++"       ,"url": "https://fr.wikipedia.org/wiki/C%2B%2B"},
+]

@@ -1,0 +1,21 @@
+---
+import '../css/footer.scss'
+import footData from '../data/footData';
+import navData from '../data/navData';
+---
+
+
+<footer>
+    <div class="quick_links">
+        
+        {navData.map((item) => {
+            let classes = ["under"];
+            if (item.path === Astro.url.pathname) {
+                classes.push("current");
+            }
+            return <a href={item.path} class={classes.join(" ")}>{item.name}</a>
+        })}
+    </div>
+<p>Website made by Sxmourai</p>
+<p>All copyrights reserved</p>
+</footer>
