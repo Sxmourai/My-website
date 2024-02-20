@@ -1,11 +1,8 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import { getBlogs } from "../../js/blogs";
 import Post from "../../components/Post.astro";
-import RootLayout from "../../layouts/RootLayout.astro";
 
 let raw = await Astro.glob("./*.md");
-    // console.log(raw);
 ---
 
 <MainLayout title="My Blogs">
