@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/DefaultProject.astro"
+layout: "../../layouts/DefaultProject.astro"
 title: Mon système d'exploitation GluOS
 date: 1/12/2023
 desc: GluOS est mon premier système d'exploitation que j'ai fais lorsque j'avais 14 ans

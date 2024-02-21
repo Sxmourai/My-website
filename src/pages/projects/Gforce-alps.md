@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/DefaultProject.astro"
+layout: "../../layouts/DefaultProject.astro"
 title: Mon 1er site web professionnel
 date: 1/8/2023
 desc: Un site que j'ai fais pour un ami, avec hébergement, développement backend et frontend (j'ai même fais le design !)
