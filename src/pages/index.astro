@@ -1,9 +1,9 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import "../css/index.scss";
-import RootLayout from "../layouts/RootLayout.astro";
-import Footer from "../components/Footer.astro";
+import "@/styles/index.scss";
 import { knowledge } from "../data/indexData";
+import { Button } from "@/components/ui/button";
+import Posts from "@/components/Posts.astro";
 ---
 
 <MainLayout title="Main | Sxmourai">
@@ -11,6 +11,7 @@ import { knowledge } from "../data/indexData";
     <h1>I'm a <strong>Developer</strong></h1>
     <p>
       I write <strong>clean</strong> and <strong>performant</strong> code<br />
+      <!-- <Button variant="outline">Learn more</Button> -->
     </p>
     <div class="socials">
       <a href="https://discord.gg/cExaUDhv5G">
@@ -27,40 +28,20 @@ import { knowledge } from "../data/indexData";
   <section class="experience">
     <h1>My knowledge</h1>
     <ul id="exp">
-      {knowledge.map((item) => {
-        return <a href={item.url}>
-            <img src={item.path} alt={item.name} />
-            <p>{item.name}</p>
-          </a>
-    })}
+      {
+        knowledge.map((item) => {
+          return (
+            <a href={item.url}>
+              <img src={item.path} alt={item.name} />
+              <p>{item.name}</p>
+            </a>
+          );
+        })
+      }
     </ul>
   </section>
   <section class="projects">
     <h1>My projects</h1>
-    <div class="projects_container">
-      <div class="project">
-        <h2>GluOS</h2>
-        <p>GluOS is a basic operating system I made in Rust when I was 14.</p>
-        <a href="" class="under">Read More</a>
-      </div>
-      <div class="project">
-        <h2>MineRust</h2>
-        <p>
-          MineRust is a Minecraft clone made in Rust with bevy that I made to
-          learn physics and gamedev.
-        </p>
-        <a href="" class="under">Read More</a>
-      </div>
-      <div class="project">
-        <h2>Gforce-Alps</h2>
-        <p>Gforce-Alps is a website I made in Next.js and React.js</p>
-        <a href="" class="under">Read More</a>
-      </div>
-      <div class="know_more">
-        <h2>En savoir plus</h2>
-        <p>Cliquez ici pour voir le reste de mes projets</p>
-        <a href="/projects/"><p>Read More</p></a>
-      </div>
-    </div>
+    <Posts path="projects" />
   </section>
 </MainLayout>

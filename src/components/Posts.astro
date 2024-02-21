@@ -1,0 +1,48 @@
+---
+import Post from "./Post.astro";
+interface Props {
+  path: string;
+}
+let { path } = Astro.props;
+let posts;
+switch (path) {
+  case "projects":
+    posts = await Astro.glob("@/pages/projects/*.md");
+    break;
+  case "blogs":
+    posts = await Astro.glob("@/pages/blogs/*.md");
+    break;
+  default:
+    posts = await Astro.glob("@/pages/blogs/*.md");
+    console.log("ERROR INVALID POSTS");
+}
+---
+
+<div id="posts_container">
+  {
+    posts.map((post) => (
+      <Post
+        title={post.frontmatter.title}
+        desc={post.frontmatter.desc}
+        img={post.frontmatter.img}
+        categories={post.frontmatter.categories}
+        url={post.url || "Not found"}
+      />
+    ))
+  }
+</div>
+<style lang="scss" is:inline>
+  #posts_container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    width: 70%;
+    gap: 20px;
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: repeat(1, 1fr);
+      .post {
+        height: 80%;
+      }
+    }
+  }
+</style>

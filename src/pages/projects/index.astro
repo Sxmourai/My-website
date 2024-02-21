@@ -1,39 +1,11 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import "../../css/index.scss";
-import Post from "../../components/Post.astro";
-let projects = await Astro.glob("./*.md");
+import MainLayout from "@/layouts/MainLayout.astro";
+import Posts from "@/components/Posts.astro";
 ---
 
 <MainLayout title="My projects">
-  <section class="main projects">
-    <h1>My <strong>projects</strong></h1>
-    {
-      projects.map((project) => (
-        <Post
-          title={project.frontmatter.title}
-          desc={project.frontmatter.desc}
-          img={project.frontmatter.img}
-          categories={project.frontmatter.categories}
-          url={project.url || "Not found"}
-        />
-      ))
-    }
+  <section class="main flex-row">
+    <h1 style="margin-bottom: 100px;">My <strong>projects</strong></h1>
+    {(<Posts path="projects" />)}
   </section>
 </MainLayout>
-
-<style lang="scss" is:inline>
-  section {
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(3, 1fr);
-    width: 70%;
-    gap: 20px;
-    @media screen and (max-width: 1000px) {
-      grid-template-columns: repeat(1, 1fr);
-      .post {
-        height: 80%;
-      }
-    }
-  }
-</style>

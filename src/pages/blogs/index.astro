@@ -1,15 +1,11 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import Post from "../../components/Post.astro";
-
-let raw = await Astro.glob("./*.md");
+import MainLayout from "@/layouts/MainLayout.astro";
+import Posts from "@/components/Posts.astro";
 ---
 
 <MainLayout title="My Blogs">
-    <section>
-        <h1>You are seeing my blogs: </h1>
-            {
-                raw.map((blog) => <Post title={blog.frontmatter.title} desc={blog.frontmatter.desc} img={blog.frontmatter.img} categories={blog.frontmatter.categories} url={blog.url || "Not found"} />)
-            }
-    </section>
+  <section>
+    <h1>You are seeing my blogs:</h1>
+    <Posts path="blogs" />
+  </section>
 </MainLayout>

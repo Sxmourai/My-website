@@ -1,34 +1,48 @@
 ---
-import Categories from './Categories.astro';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
 interface Props {
-    title: string;
-    desc: string;
-    img: string;
-    categories: string[];
-    url: string;
+  title: string;
+  desc: string;
+  img: string;
+  categories: string[];
+  url: string;
 }
-let {title,desc,img,categories, url} = Astro.props;
+let { title, desc, img, categories, url } = Astro.props;
 ---
 
-<div class="post">
-    
-    <div class="categories">
-        {
-        categories.map((category: any) => 
-            <h3 class="category" style=`` >{category[0]}</h3>
-        )
-        }
+<Card style={{ height: "100%" }}>
+  <CardHeader>
+    <CardTitle>{title}</CardTitle>
+    <div class="flex flex-row">
+      {
+        categories.map((category) => (
+          <h3
+            class="rounded-lg border"
+            style={`padding:0.25rem;margin:0.25rem;background:${category[1]}`}
+          >
+            {category[0]}
+          </h3>
+        ))
+      }
     </div>
-    <h3>{title}</h3>
+  </CardHeader>
+  <CardContent>
+    {desc}
+  </CardContent>
+  <CardFooter>
+    <a class={buttonVariants({ variant: "outline" })} href={url}>Read more</a>
+  </CardFooter>
+</Card>
 
-    
-    <p>{desc}</p>
-    <a class="under" href={url}>Read more</a>
-    <!-- {
-    if img { <img src={img}> }
-    } -->
-</div>
-
+<!-- 
 <style>
 .post {
     width: 100%;
@@ -79,4 +93,4 @@ let {title,desc,img,categories, url} = Astro.props;
     }
 }
 
-</style>
+</style> -->

@@ -1,10 +1,10 @@
 ---
-layout: ../../layouts/DefaultProject.astro
+layout: "@/layouts/DefaultProject.astro"
 title: Mon système d'exploitation GluOS
 date: 1/12/2023
 desc: GluOS est mon premier système d'exploitation que j'ai fais lorsque j'avais 14 ans
 img: /gluOS.png
-categories: [["Rust", "red"], ["Operating System", "blue"]]
+categories: [["Rust", "#5f0d06"], ["Operating System", "#060f5a"]]
 ---
 ## Introduction
 
@@ -20,7 +20,7 @@ Au départ, j'ai commencé par implementer la fonction print sur le buffer VGA, 
 
 ## Le travail d'équipe c'est mieux
 
-Au bout d'un moment, j'ai fini par ajouter pas mal de fonctionnalités (input du clavier, print sur la console de mon IDE grâce au fonctions de débogage de Qemu, ...). Je me suis dit que j'aimerais bien travailler avec d'autres et qu'on s'entraide. C'est pour cela que j'ai rencontré AAAAAAAAAA et demandé à mon ami Yasser Cherfaoui (un autre passionné de Rust) de m'aider.
+Au bout d'un moment, j'ai fini par ajouter pas mal de fonctionnalités (input du clavier, print sur la console de mon IDE grâce au fonctions de débogage de Qemu, ...). Je me suis dit que j'aimerais bien travailler avec d'autres et qu'on s'entraide. C'est comme ça que j'ai rencontré Grey et Yasser Cherfaoui.
 
 ## Ce que j'en ai tiré
 

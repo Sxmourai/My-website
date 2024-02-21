@@ -1,10 +1,9 @@
 ---
-layout: ../../layouts/DefaultBlog.astro
-title: Un post pour tester si mon site Astro marche !
+layout: "@/layouts/DefaultBlog.astro"
+title: How to make an operating system in Rust
 date: 31/08/2023
-desc: Un post très important que vous ne verrez pas :c
-img: https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
-categories: ["Reference Docs", "Default"]
+desc: In this tutorial I show you how to make an OS in Rust from scratch (using phil opp's bootloader). The OS will be able to read from disk when the user sends a command via keyboard input, and I might make a second post if I get positive reviews !
+categories: [["Reference Docs", "#333"], ["Operating system", "#048"]]
 ---
 
-This is the content !
+Making an OS is hard.

@@ -1,16 +1,51 @@
 ---
-import Categories from "../components/Categories.astro";
 import MainLayout from "./MainLayout.astro";
 
-let {title, desc, img, categories} = Astro.props.frontmatter;
-console.log(title, desc, img, categories);
+let { title, desc, img, categories } = Astro.props.frontmatter;
 ---
 
 <MainLayout title={title}>
-    <Categories categories={categories} />
+  <div class="header">
+    <div class="categories flex flex-row">
+      {categories.map((c) => <h3 style={`background: ${c[1]}`}>{c[0]}</h3>)}
+    </div>
     <h1>{title}</h1>
-    <h3>{desc}</h3>
+    <h2 style={{ textAlign: "center" }}>{desc}</h2>
     <img src={img} />
-
+  </div>
+  <div class="content text-center flex flex-col items-center justify-center">
     <slot />
+  </div>
 </MainLayout>
+<style is:inline lang="scss">
+.header {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+.categories {
+    h3 {
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px;
+    }
+}
+h1 {
+    font-size: 38px;
+    margin: 30px;
+    margin-top: 20px;
+}
+h2 {
+    font-size: 20px;
+    width: 60%;
+}
+}
+.content {
+width: 80%;
+margin-top: 30px;
+p {
+    text-align: justify;
+}
+}
+</style>
