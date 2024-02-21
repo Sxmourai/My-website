@@ -7,13 +7,13 @@ let { path } = Astro.props;
 let posts;
 switch (path) {
   case "projects":
-    posts = await Astro.glob("@/pages/projects/*.md");
+    posts = await Astro.glob("../pages/projects/*.md");
     break;
   case "blogs":
-    posts = await Astro.glob("@/pages/blogs/*.md");
+    posts = await Astro.glob("../pages/blogs/*.md");
     break;
   default:
-    posts = await Astro.glob("@/pages/blogs/*.md");
+    posts = await Astro.glob("../pages/blogs/*.md");
     console.log("ERROR INVALID POSTS");
 }
 ---
